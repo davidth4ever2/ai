@@ -31,13 +31,10 @@ class Node:
 
 	def __init__(self,input_board):
 
-		print('input_board ' + str(input_board))
 		
 		self.maxdoor  = len(input_board[0]) -1 
 		self.maxfloor = len(input_board) - 1
 
-		print('maxdoor'  + str(self.maxdoor))
-		print('maxfloor' + str(self.maxfloor))
 		
 		self.state = list(input_board)
 
@@ -50,8 +47,6 @@ class Node:
 					self.door  = int(str(row.index(columnvalue)))
 			 		self.floor = int(str(input_board.index(row)))
 
-           				print('self.door' + str(self.door))
-					print('self.floor'+ str(self.floor))
 					if(self.door==0):
 						
 						self.canMoveLeft  = False
@@ -84,11 +79,6 @@ class Node:
 						self.canMoveUp = True
 						self.canMoveDown = True
 					
-		#print('start > '      + str(self.state))	
-		#print('move left > '  + str(self.canMoveLeft))
-		#print('move right > ' + str(self.canMoveRight))
-		#print(' move up > '   + str(self.canMoveUp))
-		#print(' move down > ' + str(self.canMoveDown))
 					
 	def childNodes(self,nextNodestate):
 		
@@ -115,7 +105,7 @@ class Node:
 			print(str('simpleNode.action'))
 
 			returnNodeList.append(simpleNode)
-           
+			return  returnNodeList 
 
 
 		if(self.canMoveDown == True):
@@ -135,8 +125,7 @@ class Node:
 
 			returnNodeList.append(simpleNode)
 
-			
-           
+			return  returnNodeList           
 
 		if(self.canMoveRight == True):
 			
@@ -155,6 +144,7 @@ class Node:
 			simpleNode.action 		= 'Right'
 
 			returnNodeList.append(simpleNode)
+			return  returnNodeList 
 	
 						
 		if(self.canMoveLeft == True):
@@ -174,14 +164,8 @@ class Node:
 			simpleNode.action       	= 'Left'
 
 			returnNodeList.append(simpleNode)
+			return  returnNodeList 
 
-
-
-		print('total size of returnNodeList ' + str(len(returnNodeList)))
-		for i in returnNodeList:
-
-
-			print('returning' + str(i.currentNodeState))
 
 		return returnNodeList
         
@@ -193,7 +177,7 @@ class Frontier:
 	items = list()
 	
 	def add(self,input_list):
-		
+		print('inputing...' + str(input_list))
 		self.items.append(input_list)
 
 	def pop(self):
@@ -283,39 +267,51 @@ class Problem:
 
 	def bfs(self):
 	
-		if(self.problemNode.state == self.goalState):
+		if(self.initialState == self.goalState):
 		
 			return 'Solution'
 			
 		self.frontier.add(self.initialState)
 		
-		while True:
+		while(len(self.frontier.items) > 0):
 
-			if(self.frontier.empty() == True):
-				
-				return 'Failure'
+			print( ' frontier size > ' + str(len(self.frontier.items)))
 
-		
+
 			input_node  = self.frontier.pop()
-
+			print(str(len(self.frontier.items)) + " total length ")
+	
 	
 
 			newNode = Node(input_node)
-
 			for child in newNode.childNodes(newNode.state):
-				
-				if( not(self.explored.found(child.currentNodeState)) and not (self.frontier.found(child.currentNodeState))):
-						
-					if(child.currentNodeState==self.goalState):
-						
-						return 'Solution'
-					else:
+				print('----' +  str(self.explored.found(child.currentNodeState)))
+		
+				print('--------------------------------------------------')
+				print('parentNodeState > ' +  str(child.parentNodeState))
+				print(' childNodeState > ' + str(child.currentNodeState))
+				print(' action that got me here >' + str(child.action))
+				if(child.currentNodeState==self.goalState):
+
+					return 'Solution'
+			
+				newNode = Node(child.currentNodeState)	
+                                
+		
+
+					
+			
+			
+
+				print('frontier before ' + str(len(self.frontier.items)))
+			
+			
+
+			
+			
 
 
-						print('--------------------------------------------------')
-						print('parentNodeState > ' +  str(child.parentNodeState))
-						print(' childNodeState > ' + str(child.currentNodeState))
-						print(' action that got me here >' + str(child.action))
+
 
 					
 					
