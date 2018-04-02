@@ -2,7 +2,7 @@ import sys, copy
 
 class SimpleNode:
 
-	action           = list()
+	action           = None
 	direction 	 = None
 	parentNodeState  = None
 	currentNodeState = None
@@ -102,7 +102,12 @@ class Node:
 
 			u_childNode[(self.floor)][self.door] = temp
 
-			returnNodeList.append(u_childNode)
+			simpleNode 		       	 = SimpleNode()
+			simpleNode.parentNodeState       = currentNode
+			simpleNode.currentNodeState      = u_childNode
+			simpleNode.action 	         = 'Up'
+
+			returnNodeList.append(simpleNode)
            
 
 
@@ -116,8 +121,15 @@ class Node:
 
 			d_childNode[(self.floor)][self.door] = temp
 			
-			returnNodeList.append(d_childNode)
+			simpleNode 		     = SimpleNode()
+			simpleNode.parentNodeState   = currentNode
+			simpleNode.currentNodeState  = d_childNode
+			simpleNode.action 	     = 'Down'
 
+			returnNodeList.append(simpleNode)
+
+			
+           
 
 		if(self.canMoveRight == True):
 			
@@ -130,7 +142,12 @@ class Node:
 
 			r_childNode[(self.floor)][self.door] = temp
                        
-			returnNodeList.append(r_childNode)
+			simpleNode 			= SimpleNode()
+			simpleNode.parentNodeState  	= currentNode
+			simpleNode.currentNodeState 	= r_childNode
+			simpleNode.action 		= 'Right'
+
+			returnNodeList.append(simpleNode)
 	
 						
 		if(self.canMoveLeft == True):
@@ -142,8 +159,14 @@ class Node:
 			l_childNode[(self.floor)][self.door-1] = 0
 
 			l_childNode[(self.floor)][self.door] = temp
+			
 
-			returnNodeList.append(l_childNode)
+			simpleNode 			= SimpleNode()
+			simpleNode.parentNodeState 	= currentNode
+			simpleNode.currentNodeState 	= l_childNode
+			simpleNode.action       	= 'Left'
+
+			returnNodeList.append(simpleNode)
 
 
 
@@ -153,7 +176,8 @@ class Node:
 			print(str(i))
 
 		return returnNodeList
-
+        
+	
 
 
 class Frontier:
@@ -175,8 +199,13 @@ class Frontier:
 			return True
 		else:
 			return False	
+	def empty(self):
+		
+		if( len(items) > 0):
 			
-
+			return False
+		else:
+			return True
 
 class Explored :
 	
@@ -195,42 +224,65 @@ class Explored :
 			return True
 		else:
 			return False	
+ 
 		
 		
 
-def bfs:
 		
-	board  = [ [1,2,5], [3,4,0], [6,7,8] ]
-	goal   = [ [0,1,2], [3,4,5], [6,7,8] ]
 
 
-	frontier = Frontier()
-	explored = Explored()
-        s = Node(board)
+board  = [ [1,2,5], [3,4,0], [6,7,8] ]
+goal   = [ [0,1,2], [3,4,5], [6,7,8] ]
+
+
+class Problem:
+
+	frontier = None
+	explored = None
+	node     = None
+	pathCost = 0
+
+	def __init__(self,board):
+
+		self.frontier 		= Frontier()
+		self.explored 		= Explored()
+		self.problemNode 	= Node(board)
+		self.frontier.add(board)
+
+	def bfs(self):
 	
-	while True:
+		if(self.problemNode.state = goalState):
+		
+			return 'Solution'
+			
+		frontier.add(node.state)
+		
+		while True:
 
-		for i in s.childNodes(s.state):
+				
+			
+			if(frontier.empty() == True):
+				
+				return 'Failure'
+
+		
+			input_node  = frontier.pop()
+
+			for child in input_node.childNodes(input_node.state):
+				
+				if( not(explored.found(child.state)) and not (frontier.found(child.state))):
+						
+					if(child.state==goalState):
+						
+						return 'Solution'
+					else:
+						frontier.add(child.state)
+					
+					
+
 	
-			frontier.add(i)
 
-
-		toTest = frontier.pop()
-
-		explored.add(toTest)
-
-
-		if not(toTest == goal):
-
-			print('no match')
-
-			return toTest
-
-		 s = Node(toTest)
 	
-	
-	
-	
-	
+
 
 
