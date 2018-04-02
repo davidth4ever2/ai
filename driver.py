@@ -84,17 +84,17 @@ class Node:
 						self.canMoveUp = True
 						self.canMoveDown = True
 					
-		print('start > '      + str(self.state))	
-		print('move left > '  + str(self.canMoveLeft))
-		print('move right > ' + str(self.canMoveRight))
-		print(' move up > '   + str(self.canMoveUp))
-		print(' move down > ' + str(self.canMoveDown))
+		#print('start > '      + str(self.state))	
+		#print('move left > '  + str(self.canMoveLeft))
+		#print('move right > ' + str(self.canMoveRight))
+		#print(' move up > '   + str(self.canMoveUp))
+		#print(' move down > ' + str(self.canMoveDown))
 					
 	def childNodes(self,nextNodestate):
 		
 		currentNode =  copy.deepcopy(nextNodestate)
 	
-		print('nextNode > ' + str(nextNodestate))
+		#print('nextNode > ' + str(nextNodestate))
                 returnNodeList = list()
 			
 		if(self.canMoveUp == True):
@@ -259,16 +259,16 @@ class Problem:
                 goalboard    = board.split(',')
 		goalboard.sort()
 
-		print('the goal is ' + str(goalboard))
+
 		
 		self.goalState.append(goalboard[0:3])
 		self.goalState.append(goalboard[3:6])
 	        self.goalState.append(goalboard[6:9])
 
 
-		print(str(self.goalState[0])) 
-		print(str(self.goalState[1]))
-		print(str(self.goalState[2]))
+
+
+
 
 
 	
@@ -298,7 +298,7 @@ class Problem:
 		
 			input_node  = self.frontier.pop()
 
-			print('input node ' + str(input_node))			
+	
 
 			newNode = Node(input_node)
 
