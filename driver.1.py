@@ -1,5 +1,37 @@
 from collections import deque 
 
+class BookKeeper:
+
+	parent_list = list()
+	path_to_goal = list()
+	cost_of_path = 0
+	nodes_expanded = 0
+	search_depth = 0
+	max_search_depth = 0
+	running_time = 0
+	max_ran_usage = 0
+
+	def __init__(self):
+
+	
+		parent_list      = list()
+		path_to_goal     = list()
+		cost_of_path     = 0
+		nodes_expanded   = 0
+		search_depth     = 0
+		max_search_depth = 0
+		running_time     = 0
+		max_ran_usage    = 0
+	
+	def getSearchDepth(self):
+		testSet = set(self.parent_list)		
+
+		print(str(testSet))
+
+		return len(testSet)
+		
+
+	
 class Util:
 	
 	copiedList = list()
@@ -24,8 +56,17 @@ class Explored:
 
 	def add(self,inputNode):
 		
-		self.nodeList.append(inputNode)
+		self.nodeList.append(str(inputNode.state))
 		self.nodeSet= set(self.nodeList)
+
+	def found(self,inputNode):
+
+		if(str(inputNode.state) in self.nodeSet):
+			
+			return True
+		else:
+			return False
+
 
 
 
@@ -36,16 +77,17 @@ class Frontier:
 
         def new(self,initNode):
 		self.numberOfNodes = self.numberOfNodes + 1
-		self.queue.append(initNode)
+		self.queue.append(initNode.state)
 
 	def pop(self):
 
 		self.numberOfNodes = self.numberOfNodes-1
+		
 		return self.queue.popleft()
 		
         def append(self,nodeToAdd):
 
-		self.queue=deque.append(nodeToAdd)
+		self.queue=deque.append(nodeToAdd.state)
 		self.numberOfNodes = self.numberOfNodes + 1
 
 	def isEmpty(self):
@@ -59,6 +101,17 @@ class Frontier:
 			returnValue =  False
 		
 		return returnValue
+	
+	def found(self, inputNode):
+		
+		if(self.queue.count(inputNode.state) > 0):
+			
+			return True
+		else:
+			return False
+
+	
+		  
 
 class InitialNode:
 
@@ -181,7 +234,9 @@ class Node:
 
 
 def bfs():
-	
+
+	testcount = 0
+	bookKeeper = BookKeeper()
 	actions = ["Up","Down","Left","Right"]
 	nodeList = list()
 	frontier = Frontier()
@@ -192,31 +247,39 @@ def bfs():
 	print(str(frontier.isEmpty()))
 
 	while not(frontier.isEmpty()):
-                 
-		startNode = frontier.pop() # add to fringe
-
-		print("expanding " + str(startNode.state))
-		print("comparing to " + str(TargetNode().state))
-
+		
+		startNode = InitialNode()
+                startNode.state = frontier.pop() # add to fringe
 		explored = Explored()
                 explored.add(startNode)
 
 		if(startNode.state == TargetNode().state):
 
-			print("solution found")
-			print(startNode.pathCost)
-			return startNode.state
+			print("nodes.expanded:" + str(bookKeeper.nodes_expanded))
 
+			print( "path to goal " + str(parentNode.parentState))
+			print( "solution" + str(startNode.state))
+
+			return startNode.state
+                 
+		
+                bookKeeper.nodes_expanded = bookKeeper.nodes_expanded + 1
+
+		print(bookKeeper.nodes_expanded)
+		
+		
+		testcount = testcount + 1
 		for action in actions:
-			print(action)
+			
 			node       = Node(startNode)
 			returnNode = node.childNode(node.parentState,action)
+			
+			if( not( explored.found(returnNode) ) and not( frontier.found(returnNode) ) ):
 
-			print(str( type(returnNode.state)) + action)
-			frontier.new(returnNode)
-				
+				print("adding to the frontier" + str(returnNode.state))
+		
+				frontier.new(returnNode)
 
-#		print(frontier.numberOfNodes)
 
 bfs()
 
