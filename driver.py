@@ -1,4 +1,6 @@
-import sys, copy
+import sys, copy 
+from collections import deque
+
 
 class SimpleNode:
 
@@ -105,7 +107,6 @@ class Node:
 			print(str('simpleNode.action'))
 
 			returnNodeList.append(simpleNode)
-			return  returnNodeList 
 
 
 		if(self.canMoveDown == True):
@@ -125,7 +126,6 @@ class Node:
 
 			returnNodeList.append(simpleNode)
 
-			return  returnNodeList           
 
 		if(self.canMoveRight == True):
 			
@@ -144,8 +144,6 @@ class Node:
 			simpleNode.action 		= 'Right'
 
 			returnNodeList.append(simpleNode)
-			return  returnNodeList 
-	
 						
 		if(self.canMoveLeft == True):
 			
@@ -164,7 +162,6 @@ class Node:
 			simpleNode.action       	= 'Left'
 
 			returnNodeList.append(simpleNode)
-			return  returnNodeList 
 
 
 		return returnNodeList
@@ -182,7 +179,7 @@ class Frontier:
 
 	def pop(self):
 
-	    return self.items.pop(0)
+	    return self.items.pop()
 
 	def found(self,input_list):
 	
@@ -268,42 +265,41 @@ class Problem:
 	def bfs(self):
 	
 		if(self.initialState == self.goalState):
-		
-			return 'Solution'
 			
-		self.frontier.add(self.initialState)
-		
+			print('Solution Found!')
+			return self.initialState
+			
 		while(len(self.frontier.items) > 0):
 
-			print( ' frontier size > ' + str(len(self.frontier.items)))
 
+			def expand():
 
-			input_node  = self.frontier.pop()
-			print(str(len(self.frontier.items)) + " total length ")
-	
-	
+				input_state = self.frontier.pop()
+				newNode    = Node(input_state)
 
-			newNode = Node(input_node)
-			for child in newNode.childNodes(newNode.state):
-				print('----' +  str(self.explored.found(child.currentNodeState)))
-		
-				print('--------------------------------------------------')
-				print('parentNodeState > ' +  str(child.parentNodeState))
-				print(' childNodeState > ' + str(child.currentNodeState))
-				print(' action that got me here >' + str(child.action))
-				if(child.currentNodeState==self.goalState):
+				
+				for child in newNode.childNodes(newNode.state):
+					
+					print('----' +  str(self.explored.found(child.currentNodeState)))
+					print('--------------------------------------------------')
+					print('parentNodeState > ' +  str(child.parentNodeState))
+					print('childNodeState > ' + str(child.currentNodeState))
+					print('action that got me here >' + str(child.action))
+					
+					if(child.currentNodeState==self.goalState):
+						print( 'solution ' + str(child.currentNodeState))
 
-					return 'Solution'
+						return 'Solution'
 			
-				newNode = Node(child.currentNodeState)	
+					self.frontier.add(child.currentNodeState)
+			
                                 
-		
-
+				
+				
 					
 			
 			
 
-				print('frontier before ' + str(len(self.frontier.items)))
 			
 			
 
@@ -319,7 +315,7 @@ class Problem:
 	
 
 	
-#board  = [ [1,2,5], [3,4,0], [6,7,8] ]
+board  = [ [1,2,5], [3,4,0], [6,7,8] ]
 #goal = [ [0,1,2], [3,4,5], [6,7,8] ]
 
 if(sys.argv[1]=="bfs"):
