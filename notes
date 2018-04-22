@@ -2,3 +2,29 @@ board  = [ [1,2,5], [3,4,0], [6,7,8] ]
 goal = [ [0,1,2], [3,4,5], [6,7,8] ]
 
 125340678
+
+
+path_to_goal: ['Up', 'Left', 'Left']
+
+cost_of_path: 3
+
+nodes_expanded: 10
+
+search_depth: 3
+
+max_search_depth: 4
+
+running_time: 0.00188088
+
+max_ram_usage: 0.07812500
+
+
+to put stuff in Git Repository 
+
+commit changes to index
+git add
+git commit
+git push origin master
+push origin master
+
+
