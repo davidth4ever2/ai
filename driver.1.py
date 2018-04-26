@@ -1,20 +1,22 @@
-from collections import deque 
+from collections import deque
 import time
 import sys
 import resource
 
 class FrontierStack:
 
+	stackSet = set()
 	stack = list()
+	numberOfNodes = 0
 	
 	def __init__(self,inputList):
-		
+		self.numberOfNodes = self.numberOfNodes + 1
 		self.stack.append(inputList)
 
 	def isEmpty(self):
 	
 		
-		if( len(self.stack) == 0):
+		if( len(self.stack)==0):
 
 			return True
 		else:
@@ -24,14 +26,19 @@ class FrontierStack:
 		return	self.stack.pop()
 
 	def push(self, inputNode):
-		
-		self.stack.append(inputNode)
 
+		self.numberOfNodes = self.numberOfNodes + 1
+		self.stack.append(inputNode)
+		
+		self.stackSet = set(self.stack)
 
 	def found(self,inputNode):
 		
-		if(self.stack.count(inputNode) > 0):
-			
+		
+		f = {inputNode.state==x.state for x in self.stackSet}
+		
+		if(True in f):
+	
 			return True
 		else:
 			
@@ -86,8 +93,6 @@ class Util:
 	def __init__(self):
 
 		self.copiedList=list()
-
-
 	def copyList(self,inputlist):
 		
 		
@@ -101,9 +106,10 @@ class Explored:
 	
 	nodeSet  = set()
 	nodeList = list() 
-
+	nodecount = 0
 	def add(self,inputNode):
-		
+
+		self.nodecount= self.nodecount+1
 		self.nodeList.append(inputNode)
 		self.nodeSet= set(self.nodeList)
 
@@ -163,7 +169,6 @@ class Frontier:
 	
 	def found(self, inputNode):
 
-		bookKeeper.nodes_expanded = bookKeeper.nodes_expanded + 1
 	
 		if(self.queue.count(inputNode.state) > 0):
 			
@@ -218,7 +223,6 @@ class Node:
 			
 	def childNode(self,inputState,inputAction):
 
-		BookKeeper.nodes_expanded = BookKeeper.nodes_expanded + 1
 		
 		util = Util()
 		currentState = util.copyList(inputState)
@@ -361,7 +365,7 @@ def dfs():
 	frontier = FrontierStack(initialNode)
 	explored = Explored()
 	actions = ["Up","Down","Left","Right"]
-	actions.reverse()
+
 	while not(frontier.isEmpty()):
 		
 		startNode = frontier.pop()
@@ -372,26 +376,68 @@ def dfs():
 			print("found solution")
 			print(startNode.state)
 			print("node_expanded:" + str(bookKeeper.nodes_expanded))
-
+			print("explored" + str(explored.nodecount))
 			return startNode.state
 
 
 		for action in actions:
-
+			bookKeeper.nodes_expanded = bookKeeper.nodes_expanded + 1
 			node       = Node(startNode)
 			returnNode = node.childNode(node.parentState,action)
 	
-			if( not( explored.found(returnNode) ) and not( frontier.found(returnNode) ) ):
-				
+			if (explored.found(returnNode)!=True):
+			
 				print("adding to the frontier" + str(returnNode.state))
 				print("adding to the frontier this parent " + str(returnNode.parentState))
 				print("adding to the frontier this action " + str(returnNode.action))
+				print("currenNode count " + str(frontier.numberOfNodes))
 				frontier.push(returnNode)
 
 
 
+def dfs2():
 
-dfs()
+		
+	bookKeeper = BookKeeper()
+	initialNode = InitialNode()
+	frontier = FrontierStack(initialNode)
+	explored = Explored()
+	actions = ["Up","Down","Left","Right"]
+
+	while not(frontier.isEmpty()):
+		
+		startNode = frontier.pop()
+		explored.add(startNode)
+
+		if(TargetNode.state == startNode.state):
+		
+			print("found solution")
+			print(startNode.state)
+			print("node_expanded:" + str(bookKeeper.nodes_expanded))
+			print("explored" + str(explored.nodecount))
+			return startNode.state
+
+
+		for action in actions:
+			bookKeeper.nodes_expanded = bookKeeper.nodes_expanded + 1
+			node       = Node(startNode)
+			returnNode = node.childNode(node.parentState,action)
+			print("-----------------------------------------------")
+			print("node.state" + str(returnNode.state))
+			print("node.action" + str(returnNode.action))
+			print("node.count" + str(frontier.numberOfNodes))			
+			if not(frontier.found(returnNode) and explored.found(returnNode)):
+
+				frontier.push(returnNode)
+	        
+		
+
+
+
+	
+dfs2()
+		
+#dfs() - does not return enough records
 
 #bfs() - functional already just need to add the file write outs
 
