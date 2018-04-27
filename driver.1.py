@@ -362,6 +362,7 @@ def bfs():
 
 def dfs():
 	bookKeeper = BookKeeper()
+	bookKeeper.numberOfNodes = 1
 	initialNode = InitialNode()
 	frontier = FrontierStack()
 	explored = Explored()
@@ -370,19 +371,19 @@ def dfs():
 	while not(frontier.isEmpty()):
 		
 		startNode = frontier.pop()
+		bookKeeper.numberOfNodes = bookKeeper.numberOfNodes + 1
 		explored.add(startNode)
 
 		if(TargetNode.state == startNode.state):
 		
 			print("found solution")
 			print(startNode.state)
-			print("node_expanded:" + str(bookKeeper.nodes_expanded))
+			print("node_expanded:" + str(bookKeeper.numberOfNodes))
 			print("explored" + str(explored.nodecount))
 			return startNode.state
 
 
 		for action in actions:
-			bookKeeper.nodes_expanded = bookKeeper.nodes_expanded + 1
 			node       = Node(startNode)
 			returnNode = node.childNode(node.parentState,action)
 	
