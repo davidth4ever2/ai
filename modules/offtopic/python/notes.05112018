@@ -1,0 +1,926 @@
+Python 2.7.12 (default, Dec  4 2017, 14:50:18) 
+[GCC 5.4.0 20160609] on linux2
+Type "copyright", "credits" or "license()" for more information.
+>>> f = open('clue#2')
+>>> f.readline()
+'zyeswfogmmetwwossdchrzyldsbwnydednzwnefydthtddbojice\n'
+>>> f.readline()
+'mlucdygicczhoadrzcylwadsxpilpiecskomoltejtkmqqymehpmmjxyolwpeewjckznpccpsvsxauyodhalmrioc\n'
+>>> f.readline()
+'wpelwbcniyfxmwjcemcyrazdqlsomdbfljwnbijxpddsyoehxpceswtoxwbleecsaxcnuetzywfn\n'
+>>> f.readline()
+''
+>>> for line in f
+SyntaxError: invalid syntax
+>>> for lin in f:
+	print lin
+
+	
+>>> f.close
+<built-in method close of file object at 0x7f07f7ae38a0>
+>>> f.close()
+>>> f = open('clue#2')
+>>> for lin in f:
+	print lin
+
+	
+zyeswfogmmetwwossdchrzyldsbwnydednzwnefydthtddbojice
+
+mlucdygicczhoadrzcylwadsxpilpiecskomoltejtkmqqymehpmmjxyolwpeewjckznpccpsvsxauyodhalmrioc
+
+wpelwbcniyfxmwjcemcyrazdqlsomdbfljwnbijxpddsyoehxpceswtoxwbleecsaxcnuetzywfn
+
+>>> list(f)
+[]
+>>> f.close()
+>>> f = open('clue#2')
+>>> list(f)
+['zyeswfogmmetwwossdchrzyldsbwnydednzwnefydthtddbojice\n', 'mlucdygicczhoadrzcylwadsxpilpiecskomoltejtkmqqymehpmmjxyolwpeewjckznpccpsvsxauyodhalmrioc\n', 'wpelwbcniyfxmwjcemcyrazdqlsomdbfljwnbijxpddsyoehxpceswtoxwbleecsaxcnuetzywfn\n']
+>>> f.close()
+>>> f = open('clue#2')
+>>> data = list(f)
+>>> f.close()
+>>> data
+['zyeswfogmmetwwossdchrzyldsbwnydednzwnefydthtddbojice\n', 'mlucdygicczhoadrzcylwadsxpilpiecskomoltejtkmqqymehpmmjxyolwpeewjckznpccpsvsxauyodhalmrioc\n', 'wpelwbcniyfxmwjcemcyrazdqlsomdbfljwnbijxpddsyoehxpceswtoxwbleecsaxcnuetzywfn\n']
+>>> for in data:
+	
+SyntaxError: invalid syntax
+>>> for line in data:
+	print\\
+	
+SyntaxError: unexpected character after line continuation character
+>>> 
+>>> line[0]
+
+Traceback (most recent call last):
+  File "<pyshell#27>", line 1, in <module>
+    line[0]
+NameError: name 'line' is not defined
+>>> data[0]
+'zyeswfogmmetwwossdchrzyldsbwnydednzwnefydthtddbojice\n'
+>>> alphabet = 'abcdefghijklmnopqrstuvwxyz'
+>>> v = 0
+for letter in alphabet:
+	
+>>> for letter in alphabet:
+	[data[0].count(letter)]
+
+	
+[0]
+[2]
+[2]
+[7]
+[5]
+[2]
+[1]
+[2]
+[1]
+[1]
+[0]
+[1]
+[2]
+[3]
+[3]
+[0]
+[0]
+[1]
+[4]
+[3]
+[0]
+[0]
+[5]
+[0]
+[4]
+[3]
+>>> for letter in alphabet:
+	['letter' + str(letter) + str(data[0].count(letter))]
+
+	
+['lettera0']
+['letterb2']
+['letterc2']
+['letterd7']
+['lettere5']
+['letterf2']
+['letterg1']
+['letterh2']
+['letteri1']
+['letterj1']
+['letterk0']
+['letterl1']
+['letterm2']
+['lettern3']
+['lettero3']
+['letterp0']
+['letterq0']
+['letterr1']
+['letters4']
+['lettert3']
+['letteru0']
+['letterv0']
+['letterw5']
+['letterx0']
+['lettery4']
+['letterz3']
+>>> for letter in alphabet:
+	['letter ' + str(letter) + str(data[0].count(letter))]
+
+	
+['letter a0']
+['letter b2']
+['letter c2']
+['letter d7']
+['letter e5']
+['letter f2']
+['letter g1']
+['letter h2']
+['letter i1']
+['letter j1']
+['letter k0']
+['letter l1']
+['letter m2']
+['letter n3']
+['letter o3']
+['letter p0']
+['letter q0']
+['letter r1']
+['letter s4']
+['letter t3']
+['letter u0']
+['letter v0']
+['letter w5']
+['letter x0']
+['letter y4']
+['letter z3']
+>>> for letter in alphabet:
+	[str(letter) + '=' + str(data[0].count(letter))]
+
+	
+['a=0']
+['b=2']
+['c=2']
+['d=7']
+['e=5']
+['f=2']
+['g=1']
+['h=2']
+['i=1']
+['j=1']
+['k=0']
+['l=1']
+['m=2']
+['n=3']
+['o=3']
+['p=0']
+['q=0']
+['r=1']
+['s=4']
+['t=3']
+['u=0']
+['v=0']
+['w=5']
+['x=0']
+['y=4']
+['z=3']
+>>> 
+['z=3']
+['z=3']
+>>> alphabet.index('s')
+18
+>>> alphabet.index('n')
+13
+>>> alphabet.index('a')
+0
+>>> alphabet.index('k')
+10
+>>> alphabet.index('e')
+4
+>>> alphabet.index('s') + 1
+19
+>>> alphabet.index('n') + 1
+14
+>>> alphabet.index('a') + 1
+1
+>>> alphabet.index('k') + 1
+11
+>>> alphabet.index('e') + 1
+5
+>>> for letter in alphabet:
+	[str(letter) + '=' + str(data[0].count(letter)) ]
+
+	
+['a=0']
+['b=2']
+['c=2']
+['d=7']
+['e=5']
+['f=2']
+['g=1']
+['h=2']
+['i=1']
+['j=1']
+['k=0']
+['l=1']
+['m=2']
+['n=3']
+['o=3']
+['p=0']
+['q=0']
+['r=1']
+['s=4']
+['t=3']
+['u=0']
+['v=0']
+['w=5']
+['x=0']
+['y=4']
+['z=3']
+>>> shiftkey = "snake"
+>>> currentposition = 0
+>>> for i in range(25):
+	if(i < 5)
+	
+SyntaxError: invalid syntax
+>>> for i in range(25):
+	if(i < 5):
+		print i
+
+		
+0
+1
+2
+3
+4
+>>> g = 0
+>>> for i in range(26):
+	if(i<1):
+		g=i
+	else:
+		g++
+		
+SyntaxError: invalid syntax
+>>> for i in range(26):
+	if(i<1):
+		g=i
+	else:
+		g = g + 1
+
+		
+>>> [x * 5 for x in range(6)]
+[0, 5, 10, 15, 20, 25]
+>>> for i in [x * f for x in range(6)]
+SyntaxError: invalid syntax
+>>> for i in [x * f for x in range(6)]:
+	print i
+
+	
+
+Traceback (most recent call last):
+  File "<pyshell#86>", line 1, in <module>
+    for i in [x * f for x in range(6)]:
+TypeError: unsupported operand type(s) for *: 'int' and 'file'
+>>> for i in [x * 5 for x in range(6)]:
+	
+	print i
+
+	
+0
+5
+10
+15
+20
+25
+>>> series = [x * 5 for x in range(5)]
+>>> count  = 0
+>>> for i in range(26):
+	count = count + 1
+	print count
+
+	
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+>>> for i in range(26):
+	count = count + 1
+	print count
+	print str(i) + "i"
+
+	
+27
+0i
+28
+1i
+29
+2i
+30
+3i
+31
+4i
+32
+5i
+33
+6i
+34
+7i
+35
+8i
+36
+9i
+37
+10i
+38
+11i
+39
+12i
+40
+13i
+41
+14i
+42
+15i
+43
+16i
+44
+17i
+45
+18i
+46
+19i
+47
+20i
+48
+21i
+49
+22i
+50
+23i
+51
+24i
+52
+25i
+>>> count = 0
+for i in range(26):	
+	print count
+	print str(i) + "i"
+	
+>>> for i in range(26):
+	print count
+	print str(i) + "i"
+
+	
+0
+0i
+0
+1i
+0
+2i
+0
+3i
+0
+4i
+0
+5i
+0
+6i
+0
+7i
+0
+8i
+0
+9i
+0
+10i
+0
+11i
+0
+12i
+0
+13i
+0
+14i
+0
+15i
+0
+16i
+0
+17i
+0
+18i
+0
+19i
+0
+20i
+0
+21i
+0
+22i
+0
+23i
+0
+24i
+0
+25i
+>>> for i in range(26):
+	count = count + 1
+	currentSeries = 0
+	print("count ... "  + count  + " position  of i " + str(i) + "currentSeries" + currentSeries )
+	if(i+1=count):
+		
+SyntaxError: invalid syntax
+>>> for i in range(26):
+	count = count + 1
+	currentSeries = 0
+	print("count ... "  + count  + " position  of i " + str(i) + "currentSeries" + currentSeries )
+	if(i+1==count):
+		currentSeries = currentSeries + 1
+
+	
+
+Traceback (most recent call last):
+  File "<pyshell#109>", line 4, in <module>
+    print("count ... "  + count  + " position  of i " + str(i) + "currentSeries" + currentSeries )
+TypeError: cannot concatenate 'str' and 'int' objects
+>>> for i in range(26):
+	count = count + 1
+	currentSeries = 0
+	print("count ... "  + count  + " position  of i " + str(i) + "currentSeries" + str(currentSeries) )
+	if(i+1==count):
+		currentSeries = currentSeries + 1
+
+		
+
+Traceback (most recent call last):
+  File "<pyshell#111>", line 4, in <module>
+    print("count ... "  + count  + " position  of i " + str(i) + "currentSeries" + str(currentSeries) )
+TypeError: cannot concatenate 'str' and 'int' objects
+>>> for i in range(26):
+	count = count + 1
+	currentSeries = 0
+	print("count ... "  + str(count)  + " position  of i " + str(i) + "currentSeries" + str(currentSeries) )
+	if(i+1==count):
+		currentSeries = currentSeries + 1
+
+		
+count ... 3 position  of i 0currentSeries0
+count ... 4 position  of i 1currentSeries0
+count ... 5 position  of i 2currentSeries0
+count ... 6 position  of i 3currentSeries0
+count ... 7 position  of i 4currentSeries0
+count ... 8 position  of i 5currentSeries0
+count ... 9 position  of i 6currentSeries0
+count ... 10 position  of i 7currentSeries0
+count ... 11 position  of i 8currentSeries0
+count ... 12 position  of i 9currentSeries0
+count ... 13 position  of i 10currentSeries0
+count ... 14 position  of i 11currentSeries0
+count ... 15 position  of i 12currentSeries0
+count ... 16 position  of i 13currentSeries0
+count ... 17 position  of i 14currentSeries0
+count ... 18 position  of i 15currentSeries0
+count ... 19 position  of i 16currentSeries0
+count ... 20 position  of i 17currentSeries0
+count ... 21 position  of i 18currentSeries0
+count ... 22 position  of i 19currentSeries0
+count ... 23 position  of i 20currentSeries0
+count ... 24 position  of i 21currentSeries0
+count ... 25 position  of i 22currentSeries0
+count ... 26 position  of i 23currentSeries0
+count ... 27 position  of i 24currentSeries0
+count ... 28 position  of i 25currentSeries0
+>>> for i in range(26):
+	count = 0
+	while(count < 10 ):
+		
+		currentSeries = 0
+		print("count ... "  + str(count)  + " position  of i " + str(i) + "currentSeries" + str(currentSeries) )
+		if(i+1==count):
+			currentSeries = currentSeries + 1
+		count = count + 1
+
+		
+count ... 0 position  of i 0currentSeries0
+count ... 1 position  of i 0currentSeries0
+count ... 2 position  of i 0currentSeries0
+count ... 3 position  of i 0currentSeries0
+count ... 4 position  of i 0currentSeries0
+count ... 5 position  of i 0currentSeries0
+count ... 6 position  of i 0currentSeries0
+count ... 7 position  of i 0currentSeries0
+count ... 8 position  of i 0currentSeries0
+count ... 9 position  of i 0currentSeries0
+count ... 0 position  of i 1currentSeries0
+count ... 1 position  of i 1currentSeries0
+count ... 2 position  of i 1currentSeries0
+count ... 3 position  of i 1currentSeries0
+count ... 4 position  of i 1currentSeries0
+count ... 5 position  of i 1currentSeries0
+count ... 6 position  of i 1currentSeries0
+count ... 7 position  of i 1currentSeries0
+count ... 8 position  of i 1currentSeries0
+count ... 9 position  of i 1currentSeries0
+count ... 0 position  of i 2currentSeries0
+count ... 1 position  of i 2currentSeries0
+count ... 2 position  of i 2currentSeries0
+count ... 3 position  of i 2currentSeries0
+count ... 4 position  of i 2currentSeries0
+count ... 5 position  of i 2currentSeries0
+count ... 6 position  of i 2currentSeries0
+count ... 7 position  of i 2currentSeries0
+count ... 8 position  of i 2currentSeries0
+count ... 9 position  of i 2currentSeries0
+count ... 0 position  of i 3currentSeries0
+count ... 1 position  of i 3currentSeries0
+count ... 2 position  of i 3currentSeries0
+count ... 3 position  of i 3currentSeries0
+count ... 4 position  of i 3currentSeries0
+count ... 5 position  of i 3currentSeries0
+count ... 6 position  of i 3currentSeries0
+count ... 7 position  of i 3currentSeries0
+count ... 8 position  of i 3currentSeries0
+count ... 9 position  of i 3currentSeries0
+count ... 0 position  of i 4currentSeries0
+count ... 1 position  of i 4currentSeries0
+count ... 2 position  of i 4currentSeries0
+count ... 3 position  of i 4currentSeries0
+count ... 4 position  of i 4currentSeries0
+count ... 5 position  of i 4currentSeries0
+count ... 6 position  of i 4currentSeries0
+count ... 7 position  of i 4currentSeries0
+count ... 8 position  of i 4currentSeries0
+count ... 9 position  of i 4currentSeries0
+count ... 0 position  of i 5currentSeries0
+count ... 1 position  of i 5currentSeries0
+count ... 2 position  of i 5currentSeries0
+count ... 3 position  of i 5currentSeries0
+count ... 4 position  of i 5currentSeries0
+count ... 5 position  of i 5currentSeries0
+count ... 6 position  of i 5currentSeries0
+count ... 7 position  of i 5currentSeries0
+count ... 8 position  of i 5currentSeries0
+count ... 9 position  of i 5currentSeries0
+count ... 0 position  of i 6currentSeries0
+count ... 1 position  of i 6currentSeries0
+count ... 2 position  of i 6currentSeries0
+count ... 3 position  of i 6currentSeries0
+count ... 4 position  of i 6currentSeries0
+count ... 5 position  of i 6currentSeries0
+count ... 6 position  of i 6currentSeries0
+count ... 7 position  of i 6currentSeries0
+count ... 8 position  of i 6currentSeries0
+count ... 9 position  of i 6currentSeries0
+count ... 0 position  of i 7currentSeries0
+count ... 1 position  of i 7currentSeries0
+count ... 2 position  of i 7currentSeries0
+count ... 3 position  of i 7currentSeries0
+count ... 4 position  of i 7currentSeries0
+count ... 5 position  of i 7currentSeries0
+count ... 6 position  of i 7currentSeries0
+count ... 7 position  of i 7currentSeries0
+count ... 8 position  of i 7currentSeries0
+count ... 9 position  of i 7currentSeries0
+count ... 0 position  of i 8currentSeries0
+count ... 1 position  of i 8currentSeries0
+count ... 2 position  of i 8currentSeries0
+count ... 3 position  of i 8currentSeries0
+count ... 4 position  of i 8currentSeries0
+count ... 5 position  of i 8currentSeries0
+count ... 6 position  of i 8currentSeries0
+count ... 7 position  of i 8currentSeries0
+count ... 8 position  of i 8currentSeries0
+count ... 9 position  of i 8currentSeries0
+count ... 0 position  of i 9currentSeries0
+count ... 1 position  of i 9currentSeries0
+count ... 2 position  of i 9currentSeries0
+count ... 3 position  of i 9currentSeries0
+count ... 4 position  of i 9currentSeries0
+count ... 5 position  of i 9currentSeries0
+count ... 6 position  of i 9currentSeries0
+count ... 7 position  of i 9currentSeries0
+count ... 8 position  of i 9currentSeries0
+count ... 9 position  of i 9currentSeries0
+count ... 0 position  of i 10currentSeries0
+count ... 1 position  of i 10currentSeries0
+count ... 2 position  of i 10currentSeries0
+count ... 3 position  of i 10currentSeries0
+count ... 4 position  of i 10currentSeries0
+count ... 5 position  of i 10currentSeries0
+count ... 6 position  of i 10currentSeries0
+count ... 7 position  of i 10currentSeries0
+count ... 8 position  of i 10currentSeries0
+count ... 9 position  of i 10currentSeries0
+count ... 0 position  of i 11currentSeries0
+count ... 1 position  of i 11currentSeries0
+count ... 2 position  of i 11currentSeries0
+count ... 3 position  of i 11currentSeries0
+count ... 4 position  of i 11currentSeries0
+count ... 5 position  of i 11currentSeries0
+count ... 6 position  of i 11currentSeries0
+count ... 7 position  of i 11currentSeries0
+count ... 8 position  of i 11currentSeries0
+count ... 9 position  of i 11currentSeries0
+count ... 0 position  of i 12currentSeries0
+count ... 1 position  of i 12currentSeries0
+count ... 2 position  of i 12currentSeries0
+count ... 3 position  of i 12currentSeries0
+count ... 4 position  of i 12currentSeries0
+count ... 5 position  of i 12currentSeries0
+count ... 6 position  of i 12currentSeries0
+count ... 7 position  of i 12currentSeries0
+count ... 8 position  of i 12currentSeries0
+count ... 9 position  of i 12currentSeries0
+count ... 0 position  of i 13currentSeries0
+count ... 1 position  of i 13currentSeries0
+count ... 2 position  of i 13currentSeries0
+count ... 3 position  of i 13currentSeries0
+count ... 4 position  of i 13currentSeries0
+count ... 5 position  of i 13currentSeries0
+count ... 6 position  of i 13currentSeries0
+count ... 7 position  of i 13currentSeries0
+count ... 8 position  of i 13currentSeries0
+count ... 9 position  of i 13currentSeries0
+count ... 0 position  of i 14currentSeries0
+count ... 1 position  of i 14currentSeries0
+count ... 2 position  of i 14currentSeries0
+count ... 3 position  of i 14currentSeries0
+count ... 4 position  of i 14currentSeries0
+count ... 5 position  of i 14currentSeries0
+count ... 6 position  of i 14currentSeries0
+count ... 7 position  of i 14currentSeries0
+count ... 8 position  of i 14currentSeries0
+count ... 9 position  of i 14currentSeries0
+count ... 0 position  of i 15currentSeries0
+count ... 1 position  of i 15currentSeries0
+count ... 2 position  of i 15currentSeries0
+count ... 3 position  of i 15currentSeries0
+count ... 4 position  of i 15currentSeries0
+count ... 5 position  of i 15currentSeries0
+count ... 6 position  of i 15currentSeries0
+count ... 7 position  of i 15currentSeries0
+count ... 8 position  of i 15currentSeries0
+count ... 9 position  of i 15currentSeries0
+count ... 0 position  of i 16currentSeries0
+count ... 1 position  of i 16currentSeries0
+count ... 2 position  of i 16currentSeries0
+count ... 3 position  of i 16currentSeries0
+count ... 4 position  of i 16currentSeries0
+count ... 5 position  of i 16currentSeries0
+count ... 6 position  of i 16currentSeries0
+count ... 7 position  of i 16currentSeries0
+count ... 8 position  of i 16currentSeries0
+count ... 9 position  of i 16currentSeries0
+count ... 0 position  of i 17currentSeries0
+count ... 1 position  of i 17currentSeries0
+count ... 2 position  of i 17currentSeries0
+count ... 3 position  of i 17currentSeries0
+count ... 4 position  of i 17currentSeries0
+count ... 5 position  of i 17currentSeries0
+count ... 6 position  of i 17currentSeries0
+count ... 7 position  of i 17currentSeries0
+count ... 8 position  of i 17currentSeries0
+count ... 9 position  of i 17currentSeries0
+count ... 0 position  of i 18currentSeries0
+count ... 1 position  of i 18currentSeries0
+count ... 2 position  of i 18currentSeries0
+count ... 3 position  of i 18currentSeries0
+count ... 4 position  of i 18currentSeries0
+count ... 5 position  of i 18currentSeries0
+count ... 6 position  of i 18currentSeries0
+count ... 7 position  of i 18currentSeries0
+count ... 8 position  of i 18currentSeries0
+count ... 9 position  of i 18currentSeries0
+count ... 0 position  of i 19currentSeries0
+count ... 1 position  of i 19currentSeries0
+count ... 2 position  of i 19currentSeries0
+count ... 3 position  of i 19currentSeries0
+count ... 4 position  of i 19currentSeries0
+count ... 5 position  of i 19currentSeries0
+count ... 6 position  of i 19currentSeries0
+count ... 7 position  of i 19currentSeries0
+count ... 8 position  of i 19currentSeries0
+count ... 9 position  of i 19currentSeries0
+count ... 0 position  of i 20currentSeries0
+count ... 1 position  of i 20currentSeries0
+count ... 2 position  of i 20currentSeries0
+count ... 3 position  of i 20currentSeries0
+count ... 4 position  of i 20currentSeries0
+count ... 5 position  of i 20currentSeries0
+count ... 6 position  of i 20currentSeries0
+count ... 7 position  of i 20currentSeries0
+count ... 8 position  of i 20currentSeries0
+count ... 9 position  of i 20currentSeries0
+count ... 0 position  of i 21currentSeries0
+count ... 1 position  of i 21currentSeries0
+count ... 2 position  of i 21currentSeries0
+count ... 3 position  of i 21currentSeries0
+count ... 4 position  of i 21currentSeries0
+count ... 5 position  of i 21currentSeries0
+count ... 6 position  of i 21currentSeries0
+count ... 7 position  of i 21currentSeries0
+count ... 8 position  of i 21currentSeries0
+count ... 9 position  of i 21currentSeries0
+count ... 0 position  of i 22currentSeries0
+count ... 1 position  of i 22currentSeries0
+count ... 2 position  of i 22currentSeries0
+count ... 3 position  of i 22currentSeries0
+count ... 4 position  of i 22currentSeries0
+count ... 5 position  of i 22currentSeries0
+count ... 6 position  of i 22currentSeries0
+count ... 7 position  of i 22currentSeries0
+count ... 8 position  of i 22currentSeries0
+count ... 9 position  of i 22currentSeries0
+count ... 0 position  of i 23currentSeries0
+count ... 1 position  of i 23currentSeries0
+count ... 2 position  of i 23currentSeries0
+count ... 3 position  of i 23currentSeries0
+count ... 4 position  of i 23currentSeries0
+count ... 5 position  of i 23currentSeries0
+count ... 6 position  of i 23currentSeries0
+count ... 7 position  of i 23currentSeries0
+count ... 8 position  of i 23currentSeries0
+count ... 9 position  of i 23currentSeries0
+count ... 0 position  of i 24currentSeries0
+count ... 1 position  of i 24currentSeries0
+count ... 2 position  of i 24currentSeries0
+count ... 3 position  of i 24currentSeries0
+count ... 4 position  of i 24currentSeries0
+count ... 5 position  of i 24currentSeries0
+count ... 6 position  of i 24currentSeries0
+count ... 7 position  of i 24currentSeries0
+count ... 8 position  of i 24currentSeries0
+count ... 9 position  of i 24currentSeries0
+count ... 0 position  of i 25currentSeries0
+count ... 1 position  of i 25currentSeries0
+count ... 2 position  of i 25currentSeries0
+count ... 3 position  of i 25currentSeries0
+count ... 4 position  of i 25currentSeries0
+count ... 5 position  of i 25currentSeries0
+count ... 6 position  of i 25currentSeries0
+count ... 7 position  of i 25currentSeries0
+count ... 8 position  of i 25currentSeries0
+count ... 9 position  of i 25currentSeries0
+>>> for i in range(5)
+SyntaxError: invalid syntax
+>>> for i in range(26):
+	for j in range(5)
+	
+SyntaxError: invalid syntax
+>>> for i in range(26):
+	
+	for j in range(5):
+		print ("i" + str(i)  + "j" + str(j))
+
+		
+i0j0
+i0j1
+i0j2
+i0j3
+i0j4
+i1j0
+i1j1
+i1j2
+i1j3
+i1j4
+i2j0
+i2j1
+i2j2
+i2j3
+i2j4
+i3j0
+i3j1
+i3j2
+i3j3
+i3j4
+i4j0
+i4j1
+i4j2
+i4j3
+i4j4
+i5j0
+i5j1
+i5j2
+i5j3
+i5j4
+i6j0
+i6j1
+i6j2
+i6j3
+i6j4
+i7j0
+i7j1
+i7j2
+i7j3
+i7j4
+i8j0
+i8j1
+i8j2
+i8j3
+i8j4
+i9j0
+i9j1
+i9j2
+i9j3
+i9j4
+i10j0
+i10j1
+i10j2
+i10j3
+i10j4
+i11j0
+i11j1
+i11j2
+i11j3
+i11j4
+i12j0
+i12j1
+i12j2
+i12j3
+i12j4
+i13j0
+i13j1
+i13j2
+i13j3
+i13j4
+i14j0
+i14j1
+i14j2
+i14j3
+i14j4
+i15j0
+i15j1
+i15j2
+i15j3
+i15j4
+i16j0
+i16j1
+i16j2
+i16j3
+i16j4
+i17j0
+i17j1
+i17j2
+i17j3
+i17j4
+i18j0
+i18j1
+i18j2
+i18j3
+i18j4
+i19j0
+i19j1
+i19j2
+i19j3
+i19j4
+i20j0
+i20j1
+i20j2
+i20j3
+i20j4
+i21j0
+i21j1
+i21j2
+i21j3
+i21j4
+i22j0
+i22j1
+i22j2
+i22j3
+i22j4
+i23j0
+i23j1
+i23j2
+i23j3
+i23j4
+i24j0
+i24j1
+i24j2
+i24j3
+i24j4
+i25j0
+i25j1
+i25j2
+i25j3
+i25j4
+>>> 

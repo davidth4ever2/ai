@@ -1,0 +1,160 @@
+ciphers do not involve meaning; codes are used to save time. ciphers are algorithms that are performed on small chunks of letters. 
+ciphers operator on syntax while codes operate on semantics, meaning, a code is stored as a mapping in a code book, while ciphers transform individual symbols according to an algorithm
+
+Shift Cipher
+
+Cipher is an algorithm
+the algorithm is a key
+Shared key is required to encrypt and decrypt
+
+how to encrypt
+for every letter in the message M:
+
+Convert the letter into a number that matches its order in the alphabet starting from 0 and call this number X
+Calculate Y=(X+k) mod 26
+Convert the number Y into a letter tht matches its order in the alphabet starting from 0
+
+How to Decrypt
+
+convert the letter into a number thayt matches its order in the alphabet starting from 0 and call this number Y
+calculate X=(Y-K) mod 26
+Convert the number X into a letter that matches its order in the alphabet starting from 0
+
+AND is a logical conjuction and would produce a truth tables 
+OR is logical disjuctions ; it outputs 1 whenever 1 or more of its ouputs are 1
+XOR only outputs 1 whenever the inputs do not match, which occurs when one of the two inputs is exclusively true 
+
+
+AND has a 75% change of outputting a 0 and 25 % chance of outputing a 1
+while Or has a 25 percent change of outputting a 0 and 75 percent chance of outputing a 1 while XOR has a 50% chace of outputting 0 or 1
+
+
+1010 XOR 1100 - 0110
+
+(x xor y) xor (y xor z)
+
+x=001
+y=010
+z=100
+
+001 xor 010 = 011
+
+010 xor 100 = 110
+
+011 110 101
+
+11010 and  01001
+
+0100
+
+checked into room 250 for 3 days and they gave you a copy of the key
+you receive an encrypted message; message space vs key space , cipher text space   
+a perfect secret has the same size message space, as the key space, and the ciphertext space
+ 
+-------------------------------------------------------------------
+04072018 - In order to get it to work, I had figure out how to which shift was using by using a simple brute force attack; then I unencrypted the first part of the post it note and found a few new words 
+next step is to break the information below into delimited words with posibbile dictionary mappings
+
+	zenameblackoutworriedthatourcipheristooweakonnextmessageswitchtovigenerecipherkeywordisthehiddensymbolofdeathinmyfavoriteholbeinend
+
+
+we can generate random numbers by measuring noise  - non deterministics 
+
+seed can be truly random; middle square method
+the length before the psuedorandom sequence repeats is called the period
+seed space; must be impractile for a computer to try all seeds 
+
+a
+
+
+
+what is possible vs what is possible in a reasonalble amount
+the security increases 
+
+alogorithms, that operate on individual of chunks of letters; it needs one piece of information called a key
+
+
+
+
+the second clue #
+
+Klkbnqlcytfysryucocphgbdizzfcmjwkuchzyeswfogmmetwwossdchrzyldsbwnydednzwnefydthtddbojice
+mlucdygicczhoadrzcylwadsxpilpiecskomoltejtkmqqymehpmmjxyolwpeewjckznpccpsvsxauyodhalmrioc
+wpelwbcniyfxmwjcemcyrazdqlsomdbfljwnbijxpddsyoehxpceswtoxwbleecsaxcnuetzywfn
+
+distribution of letter frequencies 
+1. determine the length of the shift word used
+2. check the frequency distribution of different intervals 
+
+
+convert the letters to numbers 
+
+for example "snake" > 
+
+
+
+
+
+making guess and ruling them out is a part of the learning process and it very important to science
+
+ 
+people will always be iangry with you when you leave but if you a traveler, just make sure people know that about you up front. The gospel was spread by travelers. As a traveler, I am constantly in the air, on the road, on the rails, on my feet, I am a man of constant study. I measure time and space for living, i decipher codes and unlock meaning in cryptography as well as the scripture not restricted to a particular religion; book genre movie or song. I fight for truth and hope; each day I remember how I could have been on the other side of things and I thank God, I listened and that he had touched me in such a way that I would
+
+
+one-time pad - means to create a randome number key as long as the message and it was developed in the 19th centery
+
+The trick is to count sequences - frequency stability
+
+the key setting is the intial configuration of the machine that generates random numbers rotor encryption machine
+
+rotor encryption machines works by having three rotor and generating a shift based on the sum of the three rotors 
+
+key space -> increase if the numbe of way; where choose and initial rotor ordering, then then we choose a configuration
+
+******a God is a character sequence the represents a person contextual stories, their positives and negatives
+
+state is the same as a configuration
+
+the bombe.
+
+September 1 1945; Perfect secrecy is defined as leaving zero information about your choice and no one can do anything better than a guess
+
+message space - a complete list of all possible 
+shared key   - random generated space
+key space   - cypher text space 
+
+The size of the message space equals the size of the message space equal the size of the ciphertext space 
+
+
+random walk; should review chaos theory 
+
+the hidden figure death is the skull? but this one did not work
+
+
+
+Information for the first clue : 
+startigrabbedeverythingicouldfindpleasereturnanyblueprintsforvaultandalarmdesignbasedonwhichbankyoudecideoniamsettingupsafehousecozenameblackoutworriedthatourcipheristooweakonnextmessageswitchtovigener
+ecipherkeywordisthehiddensymbolofdeathinmyfavoriteholbeinend
+
+
+
+051520108
+currently I am working in the shift1.py file; 
+
+need to install some software that will allow me to plot the list contents so I can see the distribution frequency of the letters;i
+
+
+$ sudo apt-get install python-matplotlib
+
+linux-headers-4.13.0-36 linux-headers-4.13.0-36-generic linux-headers-4.13.0-37 linux-headers-4.13.0-37-generic linux-headers-4.13.0-38 linux-headers-4.13.0-38-generic linux-image-4.13.0-36-generic
+  linux-image-4.13.0-37-generic linux-image-4.13.0-38-generic linux-image-extra-4.13.0-36-generic linux-image-extra-4.13.0-37-generic linux-image-extra-4.13.0-38-generic
+Use 'sudo apt autoremove' to remove them.
+
+
+if you calculate the letter frequencies 
+anytime there is a differential in letter frequency ; this difference is caused by repetition in the encrypted message ;
+to break the encryption, determine the length of the shiftword used , not the word itself ; check the frequency distribution of different intervales 
+
+I learned to create a bar chart 
+current file being used is :sample.bar.chart.py
+
